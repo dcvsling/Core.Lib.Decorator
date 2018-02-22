@@ -1,10 +1,10 @@
 # Decorator of .Net Core DI 
 
-�o�O�H Microsoft.Extensions.DependencyInjection ����¦ DI �e���ҫإߪ��M��
+這是以 Microsoft.Extensions.DependencyInjection 為基礎 DI 容器所建立的專案
 
-�ت��b��ѨM��غc�l�`�J�ɵL�k��{�`�J�P�ۤv�ۦP��@���O���Ѽ�
+目的在於解決其建構子注入時無法實現注入與自己相同實作型別的參數
 
-�]�ӳy�����H��{�غc�l�`�J�@�k���˹��Ҧ�
+因而造成難以實現建構子注入作法的裝飾模式
 
 ## How To Use
 
@@ -12,21 +12,21 @@
 
     var services = new ServiceCollection();
 
-    // ���U��@��H
+    // 註冊實作對象
     var serviceProvider = services.AddDecorator<IWriter>()
-    // �̧ǥ[�J��@
+    // 依序加入實作
         .Add<WriterA>() 
         .Add<WriterB>()
         .Add<WriterC>();
 
-    // ���o��@��H
+    // 取得實作對象
     var writer = serviceProvider.GetService<IDecorator<IWriter>>().Value;
 
 ```
 
-## �˹��Ҧ������O�ҫ� 
+## 裝飾模式的類別模型 
 
-�H�U���Ыغc�l�`�J���˹��Ҧ����ҫ��˪O
+以下介紹建構子注入的裝飾模式的模型樣板
 
 ```csharp
 
@@ -53,23 +53,23 @@
 
 ```
 
-��h���нЬd�\ Wiki (�ݫػs)
+更多介紹請查閱 [Wiki](https://github.com/dcvsling/Core.Lib.Decorator/wiki) 
 
 ## Rule
 
-��󫬧O�t�ν����ת��Ҷq�A�ҥH�ثe�Ȯɤ�����[�J�ظm�e���ɴ����P�_
+基於型別系統複雜度的考量，所以目前暫時不打算加入建置容器時期的判斷
 
-�ȥ����lDI�e���غc�P���X�A�Ȯɪ��W�d�P���~�T��
+僅仰賴原始DI容器建構與產出服務時的規範與錯誤訊息
 
 ## NuGet Feed
 
-���|��í�w���t�G�A�ҥH�ȮɨS���W���W��NuGet.org�A�p�G�Q�����Ѧ�Package�i�[�J�U�C NuGet Feed Url
+基於尚未穩定的緣故，所以暫時沒有規劃上到NuGet.org，如果想直接參考Package可加入下列 NuGet Feed Url
 
 https://www.myget.org/F/vsts-tw/api/v3/index.json
 
 ## Issue Or Contribute
 
-�Шϥ� Issue �i��^���H�� Push Request �H���ѱz���^�m
+請使用 Issue 進行回報以及 Push Request 以提供您的貢獻
 
 ## License
 
