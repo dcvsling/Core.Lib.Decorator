@@ -48,8 +48,6 @@ namespace Core.Lib.Decorator
             Services.TryAddSingleton(typeof(IDecoratorBuilder<>), typeof(Internal.DecoratorBuilder<>));
             Services.ConfigureAll<DecoratorFeature>(o => o.Decorators.AddRange(_feature.Decorators));
             Services.TryAddSingleton(typeof(DecoratorProvider<>));
-            if()
-            Services.TryAddSingleton(DecoratorType,)
             return this;
         }
 
