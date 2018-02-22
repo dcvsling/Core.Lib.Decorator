@@ -3,9 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27413.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Lib.Decorator", "Core.Lib.Decorator\Core.Lib.Decorator.csproj", "{C3871D75-9A20-4530-88D4-CE5709FE72FD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{B6EEFEDC-9D55-49C1-B2AA-02D790B7663D}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Lib.Decorator.Tests", "Core.Lib.Decorator.Tests\Core.Lib.Decorator.Tests.csproj", "{B630C1C7-C2AF-4411-AC14-FC9EC39A9778}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A099ABCC-9A27-4122-890F-94643D4D2A60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FF45B6A2-1B0A-45A5-85FB-B3E4451EFFCC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Lib.Decorator", "src\Core.Lib.Decorator\Core.Lib.Decorator.csproj", "{98DA0252-4C12-42F4-AA32-B8A278C55243}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Lib.Decorator.Tests", "test\Core.Lib.Decorator.Tests\Core.Lib.Decorator.Tests.csproj", "{7E89D35F-B8AC-464F-8B97-537B32C89C51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +22,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C3871D75-9A20-4530-88D4-CE5709FE72FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3871D75-9A20-4530-88D4-CE5709FE72FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3871D75-9A20-4530-88D4-CE5709FE72FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3871D75-9A20-4530-88D4-CE5709FE72FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B630C1C7-C2AF-4411-AC14-FC9EC39A9778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B630C1C7-C2AF-4411-AC14-FC9EC39A9778}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B630C1C7-C2AF-4411-AC14-FC9EC39A9778}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B630C1C7-C2AF-4411-AC14-FC9EC39A9778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98DA0252-4C12-42F4-AA32-B8A278C55243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98DA0252-4C12-42F4-AA32-B8A278C55243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98DA0252-4C12-42F4-AA32-B8A278C55243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98DA0252-4C12-42F4-AA32-B8A278C55243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E89D35F-B8AC-464F-8B97-537B32C89C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E89D35F-B8AC-464F-8B97-537B32C89C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E89D35F-B8AC-464F-8B97-537B32C89C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E89D35F-B8AC-464F-8B97-537B32C89C51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98DA0252-4C12-42F4-AA32-B8A278C55243} = {A099ABCC-9A27-4122-890F-94643D4D2A60}
+		{7E89D35F-B8AC-464F-8B97-537B32C89C51} = {FF45B6A2-1B0A-45A5-85FB-B3E4451EFFCC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA33F1FF-E2DF-49A8-AF41-52C5A1AC8F11}

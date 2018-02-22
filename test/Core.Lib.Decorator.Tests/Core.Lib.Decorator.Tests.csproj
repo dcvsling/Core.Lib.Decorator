@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Lib.Decorator\Core.Lib.Decorator.csproj" />
+    <ProjectReference Include="..\..\src\Core.Lib.Decorator\Core.Lib.Decorator.csproj" />
   </ItemGroup>
 
 </Project>

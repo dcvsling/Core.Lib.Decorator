@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Core.Lib.Decorator.Abstractions;
 using Core.Lib.Decorator.Internal;
@@ -24,15 +22,6 @@ namespace Core.Lib.Decorator
 
         public DecoratorBuilder Add(params Type[] types)
         {
-            //(types.All(DecoratorType.IsAssignFrom)
-            //    ? () => AddDecoratorImpls(types)
-            //    : types.GroupBy(DecoratorType.IsAssignFrom)
-            //        .Where(x => !x.Key)
-            //        .SelectMany(x => x, (_, y) => y.Name)
-            //        .JoinBy(",")
-            //        .Throw(msg => new ArgumentException(msg)))
-            //    .Invoke();
-            
             AddDecoratorImpls(types);
             return this;
         }
