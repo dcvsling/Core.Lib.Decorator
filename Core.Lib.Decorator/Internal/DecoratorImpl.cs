@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Core.Lib.Decorator.Internal
 {
     internal class DecoratorImpl<T, TImpl> : IDecoratorImpl<T, TImpl>
-        where T : class, IDecorator<T>
+        where T : class
         where TImpl : class, T
     {
         private readonly IServiceProvider _provider;
@@ -23,7 +23,7 @@ namespace Core.Lib.Decorator.Internal
             return result;
         }
 
-        private TImpl CreateService(IDecorator<T> decorator)
+        private TImpl CreateService(T decorator)
             => decorator is T service
                 ? CreateByService(service)
                 : CreateRoot();

@@ -9,14 +9,14 @@ using Core.Lib.Decorator.Abstractions;
 namespace Core.Lib.Decorator.Internal
 {
     internal class DecoratorBuilder<T> : IDecoratorBuilder<T>
-        where T : class, IDecorator<T>
+        where T : class
     {
         private readonly DecoratorFeature _features;
         private readonly IServiceProvider _provider;
 
         public DecoratorBuilder(IOptionsSnapshot<DecoratorFeature> features, IServiceProvider provider)
         {
-            _features = features.Get(typeof(T).FullName);
+            _features = features.Get(GetKey(typeof(T)));
             _provider = provider;
         }
         
@@ -35,11 +35,16 @@ namespace Core.Lib.Decorator.Internal
 
         private Type GetCloseImplType(Type type)
             => IsOpenGenericType(type) ? CloseImplType(type) : type;
+
+        private string GetKey(Type type)
+        {
+            return type.IsGenericType ? type.GetGenericTypeDefinition().FullName : type.FullName;
+        }
     }
 
 
 
-    public class DecoratorProvider<T> : IDecorator<T> where T : class, IDecorator<T>
+    public class DecoratorProvider<T> : IDecorator<T> where T : class
     {
         private readonly IDecoratorBuilder<T> _builder;
 

@@ -32,22 +32,20 @@ namespace Core.Lib.Decorator
             //        .JoinBy(",")
             //        .Throw(msg => new ArgumentException(msg)))
             //    .Invoke();
+            
             AddDecoratorImpls(types);
             return this;
         }
 
         internal DecoratorBuilder AddDecoratorCore()
         {
-            //if(!typeof(IDecorator<>).MakeGenericType(DecoratorType).IsAssignFrom(DecoratorType))
-            //    throw new ArgumentException($"{nameof(DecoratorType)} must impl IDecorator<{DecoratorType.Name}>");
-
             Services.AddOptions();
             Services.TryAddSingleton(this);
             Services.TryAddSingleton(typeof(IDecoratorImpl<,>), typeof(DecoratorImpl<,>));
             Services.TryAddSingleton(typeof(IDecoratorCache<>), typeof(DecoratorCache<>));
             Services.TryAddSingleton(typeof(IDecoratorBuilder<>), typeof(Internal.DecoratorBuilder<>));
-            Services.ConfigureAll<DecoratorFeature>(o => o.Decorators.AddRange(_feature.Decorators));
-            Services.TryAddSingleton(typeof(DecoratorProvider<>));
+            Services.Configure<DecoratorFeature>(DecoratorType.FullName,o => o.Decorators.AddRange(_feature.Decorators));
+            Services.TryAddSingleton(typeof(IDecorator<>),typeof(DecoratorProvider<>));
             return this;
         }
 

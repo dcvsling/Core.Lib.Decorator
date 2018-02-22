@@ -5,7 +5,7 @@ using Core.Lib.Decorator.Abstractions;
 
 namespace Core.Lib.Decorator
 {
-    public class DecoratorBuilder<TService> : DecoratorBuilder where TService : class,IDecorator<TService>
+    public class DecoratorBuilder<TService> : DecoratorBuilder where TService : class
     {
         public DecoratorBuilder(IServiceCollection services) : base(typeof(TService),services)
         {

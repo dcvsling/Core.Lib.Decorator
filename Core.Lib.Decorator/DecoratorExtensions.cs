@@ -9,14 +9,14 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class DecoratorExtensions
     {
         public static DecoratorBuilder<TService> AddDecorator<TService>(this IServiceCollection services)
-            where TService : class, IDecorator<TService>
+            where TService : class
             => services.FindBuilderFromServices<TService>();
 
         public static DecoratorBuilder AddDecorator(this IServiceCollection services,Type decoratorType)
             => services.FindBuilderFromServices(decoratorType);
         
         private static DecoratorBuilder<TService> FindBuilderFromServices<TService>(this IServiceCollection services)
-            where TService : class, IDecorator<TService>
+            where TService : class
             => (services.FirstOrDefault(x => x.ServiceType == typeof(DecoratorBuilder<TService>))
                 ?.ImplementationInstance is DecoratorBuilder<TService> builder ? builder : default)
                 ?? new DecoratorBuilder<TService>(services).AddDecoratorCore();

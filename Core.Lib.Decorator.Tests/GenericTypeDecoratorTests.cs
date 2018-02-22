@@ -19,7 +19,7 @@ namespace Core.Lib.Decorator.Tests
                 .Services;
 
             var provider = services.BuildServiceProvider();
-            var builder = provider.GetRequiredService<DecoratorProvider<IWriter<TextWriter>>>();
+            var builder = provider.GetRequiredService<IDecorator<IWriter<TextWriter>>>();
             var writer = builder.Value;
 
             var textwriter = new StringWriter();
@@ -29,7 +29,7 @@ namespace Core.Lib.Decorator.Tests
             Assert.Equal($"{DateTime.Now.ToShortDateString()}{nameof(TextWriter)} is Ok", textwriter.ToString());
         }
 
-        public interface IWriter<TWriter> : IDecorator<IWriter<TWriter>> where TWriter : TextWriter
+        public interface IWriter<TWriter> where TWriter : TextWriter
         {
             void Write(TWriter writer);
         }

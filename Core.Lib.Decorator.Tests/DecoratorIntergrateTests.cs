@@ -17,16 +17,16 @@ namespace Core.Lib.Decorator.Tests
                 .Services;
 
             var provider = services.BuildServiceProvider();
-            var writer = provider.GetRequiredService<IWriter>();
+            var writer = provider.GetRequiredService<IDecorator<IWriter>>();
             var textwriter = new StringWriter();
 
-            writer.Write(textwriter);
+            writer.Value.Write(textwriter);
 
             Assert.Equal(nameof(WriterC) + nameof(WriterB) + nameof(WriterA), textwriter.ToString());
         }
 
 
-        public interface IWriter : IDecorator<IWriter>
+        public interface IWriter
         {
             void Write(TextWriter writer);
         }

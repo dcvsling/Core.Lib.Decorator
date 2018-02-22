@@ -1,7 +1,8 @@
 ﻿namespace Core.Lib.Decorator.Abstractions
 {
-    internal interface IDecoratorCache<T> where T : class, IDecorator<T>
+    internal interface IDecoratorCache<T>
+        where T :class
     {
-        IDecorator<T> Value { get; set; }
+        T Value { get; set; }
     }
 }
